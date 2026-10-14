@@ -1,0 +1,8 @@
+services:
+  - type: web
+    name: veloce-internet-speed-test
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn internetspedd:app --bind 0.0.0.0:$PORT --workers 1 --threads 8 --timeout 120
+    healthCheckPath: /
